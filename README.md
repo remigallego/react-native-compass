@@ -1,7 +1,4 @@
 ## react-native-compass
 
 A compass built with React Native. 
-<p align='center'><img  src="https://gm1.ggpht.com/rHreIWeqCHJIQe3gxcm2-ckTJHoZ-Sp4uH7FFGxqa_lr9QJCYQNoSUBu4XXB84OqtkqHKEKJPSbb910WiudK_mlisw1EBTKgV3VHyaGUmSHHwWtIC4oRo1sUsT0u7kDdA68LEHT9VYq2kl2gC-E_uezGvJDiUTBig9QzF7KjdzpdAZSRg4lbEJaXmxO1QpHUxc9xy1w5xRZqcxIbgf0HC_mJbSqpmZ6fgb5LLwdJFiGx_fJbO72HxlCbQYJw3G0OeKv0idtRAlLWpLQRfkdcvqHO3oDaecsu8hY_UuTpA5uUjW3y32Oe_p97udhI3QZ3n2zmuJzsgN1jJ6AY6GfK_2r9uuONGKfTKVjHc2yjwrc0HsAFJgN6lEloyN83V--ePFmZJvISgb9sEoRfSWFK-8hRFJsQyhL00D0Mfi062ps8se2MCXt5u177p3hCtyU_t7xdP8LFwtJnTjNAHUp-_GKeZBKx5jwaVodtWB0ZEt6GA5EbGILE3kjXZrGo03yUP_7YUMg-EC7WCitP9hNWY30r_ayPyzs1N6SBdCAOBC9wTPaD_OMbz88_hMAY0HuAfaljZVh8EXxohdT2Qo3xvTzfpcTNqkrpob801sPtWe8UAw2LCnfqp-iQtaKpwniRae1NCuHHXDXQrkHSfDRqYo1JnjiS_EtogwqRDZ4jQ5aJRh9MuJgaQr23TEKZ=w2356-h1400-l75-ft" width="250" height="250" /></p>
-
-![a](https://media.giphy.com/media/1k4ltEhSqrp0pNmNB8/giphy.gif)
-
+<img src="https://thumbs.gfycat.com/WeirdInconsequentialAmethystgemclam-size_restricted.gif">
