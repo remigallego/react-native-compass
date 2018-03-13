@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Platform, Text, View, StyleSheet, Image, Animated, Easing, Dimensions} from 'react-native';
-import { Constants, Location, Permissions } from 'expo';
+import { Text, View, StyleSheet, Image, Animated, Easing, Dimensions} from 'react-native';
+import { Location, Permissions } from 'expo';
 
 export default class Compass extends Component {
   constructor() {
-    super()
+    super();
     this.spinValue = new Animated.Value(0);
     this.state =  {
         location: null,
@@ -14,7 +14,11 @@ export default class Compass extends Component {
   }
 
   componentWillMount() {
-      this._getLocationAsync();
+    this._getLocationAsync();
+  }
+
+  componentWillUpdate() {
+    this.spin()
   }
 
   _getLocationAsync = async () => {
@@ -33,7 +37,6 @@ export default class Compass extends Component {
       })
     }
   };
-
 
   spin() {
     let start = JSON.stringify(this.spinValue);
@@ -57,10 +60,6 @@ export default class Compass extends Component {
     ).start()
   }
 
-  componentWillUpdate() {
-    this.spin()
-  }
-
   render() {
     let LoadingText = 'Loading...';
     let degree = LoadingText;
@@ -79,22 +78,24 @@ export default class Compass extends Component {
 
     return (
       <View style={styles.container}>
-      <Text style={styles.text}>{degree}</Text>
-          <View style={styles.imageContainer} >
-            <Animated.Image resizeMode='contain' source={require('../assets/compass.png')}
-              style={{
-              width:  deviceWidth  - 10, height: deviceHeight/2 - 10,
-              left: deviceWidth /2 -  (deviceWidth   - 10)/2, top:  deviceHeight /2 - (deviceHeight/2  - 10)/2,
-              transform: [{rotate: spin}],
-            }} />
-          </View>
-          <View style={styles.arrowContainer} >
-            <Image resizeMode='contain' source={require('../assets/arrow.png')} style={styles.arrow} />
-          </View>
+        <Text style={styles.text}>{degree}</Text>
+        <View style={styles.imageContainer} >
+          <Animated.Image resizeMode='contain' source={require('../assets/compass.png')}
+            style={{
+            width:  deviceWidth  - 10, height: deviceHeight/2 - 10,
+            left: deviceWidth /2 -  (deviceWidth   - 10)/2, top:  deviceHeight /2 - (deviceHeight/2  - 10)/2,
+            transform: [{rotate: spin}],
+          }} />
+        </View>
+        <View style={styles.arrowContainer} >
+          <Image resizeMode='contain' source={require('../assets/arrow.png')} style={styles.arrow} />
+        </View>
       </View>
     );
   }
 }
+
+
 
 // Device dimensions so we can properly center the images set to 'position: absolute'
 const deviceWidth  =  Dimensions.get('window').width
@@ -124,5 +125,4 @@ const styles = StyleSheet.create({
     top:  deviceHeight /2  - (deviceWidth/7)/2,
     opacity: 0.9
   }
-
 });
