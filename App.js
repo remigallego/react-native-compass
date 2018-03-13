@@ -20,17 +20,17 @@ componentDidMount() {
     ).start();
   }
 
-  render() {
-    return (
-      <Animated.View style={
-        {
-        flex: 1,
-        backgroundColor: "#ecedef",
-        opacity: this.state.fadeAnim
-        }
-      } >
-        <Compass />
-      </Animated.View>
-    );
-  }
+render() {
+  return (
+    <Animated.View style={
+      {
+      flex: 1,
+      backgroundColor: "#ecedef",
+      opacity: this.state.fadeAnim
+      }
+    } >
+      <Compass />
+    </Animated.View>
+  );
+}
 }

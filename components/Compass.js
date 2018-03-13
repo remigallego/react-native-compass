@@ -9,7 +9,8 @@ export default class Compass extends Component {
     this.state =  {
         location: null,
         errorMessage: null,
-        heading: null
+        heading: null,
+        truenoth: null
       };
   }
 
@@ -40,45 +41,52 @@ export default class Compass extends Component {
 
   spin() {
     let start = JSON.stringify(this.spinValue);
-    let end =  this.state.heading;
+    let heading =  Math.round(this.state.heading);
 
-    // Handling angle jumps between 0 and 360
-    if((end%360-start%360) > 180) {
-      end = end - 360;
-    }
-    if((end%360-start%360)%360 < -180) {
-      end = end + 360;
-    }
+    let rot  = +start;
+    let rotM = rot % 360;
+
+    if(rotM < 180 && (heading > (rotM + 180)))
+      rot -= 360;
+    if(rotM >= 180 && (heading <= (rotM - 180)))
+      rot += 360
+
+    rot += (heading - rotM)
 
     Animated.timing(
       this.spinValue,
       {
-        toValue: end,
-        duration: 300,
-        easing: Easing.easeInOutQuart
+        toValue: rot,
+        duration: 400,
+        easing: Easing.easeOutBack
       }
     ).start()
   }
 
   render() {
     let LoadingText = 'Loading...';
-    let degree = LoadingText;
+    let display = LoadingText;
 
     if (this.state.errorMessage)
-      degree = this.state.errorMessage;
+      display = this.state.errorMessage;
 
     const spin = this.spinValue.interpolate({
       inputRange: [0,360],
       outputRange: ['-0deg', '-360deg']
     })
 
-    degree = Math.round(JSON.stringify(this.spinValue))
-    if(degree < 0)
-      degree += 360
+    display = Math.round(JSON.stringify(this.spinValue))
+    console.log(display);
+
+    if(display < 0)
+      display += 360
+    if(display > 360)
+      display -= 360
+
 
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>{degree}</Text>
+        <Text style={styles.text}>{display+'°'}</Text>
         <View style={styles.imageContainer} >
           <Animated.Image resizeMode='contain' source={require('../assets/compass.png')}
             style={{
@@ -94,8 +102,6 @@ export default class Compass extends Component {
     );
   }
 }
-
-
 
 // Device dimensions so we can properly center the images set to 'position: absolute'
 const deviceWidth  =  Dimensions.get('window').width
