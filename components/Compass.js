@@ -57,8 +57,8 @@ export default class Compass extends Component {
       this.spinValue,
       {
         toValue: rot,
-        duration: 400,
-        easing: Easing.easeOutBack
+        duration: 300,
+        easing: Easing.easeInOut
       }
     ).start()
   }
@@ -76,7 +76,6 @@ export default class Compass extends Component {
     })
 
     display = Math.round(JSON.stringify(this.spinValue))
-    console.log(display);
 
     if(display < 0)
       display += 360
