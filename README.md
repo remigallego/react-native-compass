@@ -2,4 +2,4 @@
 
 A compass built with React Native. 
 
-![gif](https://media.giphy.com/media/1k4ltEhSqrp0pNmNB8/giphy.gif)
+<img src='https://media.giphy.com/media/1k4ltEhSqrp0pNmNB8/giphy.gif' />
